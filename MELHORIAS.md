@@ -11,10 +11,10 @@
 ### Equipe de Melhorias
 | Nome | GitHub | Papel Principal |
 |------|--------|-----------------|
-| Diogo Andrad Ferreira | andrade-s | Desenvolvedor Principal |
-| Vinicius Pimentel da Silva | Pxmentel | Desenvolvedor Principal |
-| Paulo Sérgio Inácio | cibershaman | Desenvolvedor Principal |
-| Ryan Costa Pereira | RyanCostaP | Desenvolvedor Principal |
+| Diogo Andrad Ferreira | andrade-s | Desenvolvedor |
+| Vinicius Pimentel da Silva | Pxmentel | Desenvolvedor |
+| Paulo Sérgio Inácio | cibershaman | Desenvolvedor |
+| Ryan Costa Pereira | RyanCostaP | Desenvolvedor |
 
 ### Repositorios
 - **Projeto Original**: Projeto pessoal
