@@ -1,0 +1,59 @@
+═══════════════════════════════════════════════════════
+  COMO RODAR O PROJETO MINHA COZINHA
+═══════════════════════════════════════════════════════
+
+REQUISITOS
+-------------
+- Node.js versão 16 ou superior (baixe em: https://nodejs.org)
+
+PASSOS PARA RODAR
+--------------------
+
+1. Baixe o projeto
+   - Clone via Git ou baixe o ZIP do repositório
+
+2. Abra o terminal/prompt de comando na pasta do projeto
+
+3. Instale as dependências (primeira vez apenas):
+   npm install
+
+4. Inicie o projeto:
+   npm run dev
+
+5. Abra no navegador:
+   http://localhost:5173
+
+PRONTO! O projeto estará rodando.
+
+═══════════════════════════════════════════════════════
+
+COMANDOS ÚTEIS
+-----------------
+
+Rodar em modo desenvolvimento:
+  npm run dev
+
+Criar versão para produção:
+  npm run build
+  (Gera pasta 'dist' com arquivos prontos para hospedar)
+
+Visualizar versão de produção:
+  npm run preview
+
+═══════════════════════════════════════════════════════
+
+PROBLEMAS COMUNS
+-------------------
+
+"npm não reconhecido"
+→ Instale o Node.js em https://nodejs.org
+
+Porta 5173 ocupada
+→ O Vite escolherá automaticamente outra porta (ex: 5174)
+
+Erro ao instalar
+→ Tente: npm install --legacy-peer-deps
+
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
