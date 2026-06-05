@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Trash2 } from "lucide-react";
+import { Trash2, Heart } from "lucide-react";
 import { useUser } from "@/context/UserContext";
 import { toast } from "sonner";
 import {
@@ -25,6 +25,7 @@ interface Comment {
   avatar?: string;
   text: string;
   createdAt: string;
+  likes?: string[]; // lista de nomes que curtiram
 }
 
 interface RecipeCommentsProps {
@@ -85,10 +86,25 @@ export default function RecipeComments({ recipeId }: RecipeCommentsProps) {
       avatar: user.avatar || undefined,
       text: trimmedText,
       createdAt: new Date().toISOString(),
+      likes: [],
     };
     persist([newComment, ...comments]);
     setText("");
     toast.success("Comentário adicionado!");
+  };
+
+  const handleToggleLike = (id: string) => {
+    const userKey = (user.name || "anônimo").trim().toLowerCase();
+    const updated = comments.map((c) => {
+      if (c.id !== id) return c;
+      const likes = c.likes ?? [];
+      const liked = likes.includes(userKey);
+      return {
+        ...c,
+        likes: liked ? likes.filter((k) => k !== userKey) : [...likes, userKey],
+      };
+    });
+    persist(updated);
   };
 
   const handleDelete = () => {
@@ -178,6 +194,25 @@ export default function RecipeComments({ recipeId }: RecipeCommentsProps) {
                     <p className="text-recipe-text whitespace-pre-line break-words">
                       {c.text}
                     </p>
+                    {(() => {
+                      const userKey = (user.name || "anônimo").trim().toLowerCase();
+                      const likes = c.likes ?? [];
+                      const liked = likes.includes(userKey);
+                      return (
+                        <button
+                          type="button"
+                          onClick={() => handleToggleLike(c.id)}
+                          className="mt-2 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+                          aria-label={liked ? "Descurtir comentário" : "Curtir comentário"}
+                          aria-pressed={liked}
+                        >
+                          <Heart
+                            className={`h-4 w-4 ${liked ? "fill-primary text-primary" : ""}`}
+                          />
+                          <span>{likes.length}</span>
+                        </button>
+                      );
+                    })()}
                   </div>
                   <Button
                     variant="ghost"

@@ -1,4 +1,4 @@
-# Documentação - Minha Cozinha
+# Documentação (Antiga) - Minha Cozinha
 
 ## Visão Geral
 

@@ -1,6 +1,6 @@
-# Documentacao de Melhorias em Projeto Existente
+# Documentação de Melhorias em Projeto Existente
 
-## Informacoes Basicas
+## Informações Básicas
 
 ### Nome do Projeto Original
 `Minha Cozinha`
@@ -11,79 +11,80 @@
 ### Equipe de Melhorias
 | Nome | GitHub | Papel Principal |
 |------|--------|-----------------|
-| Diogo Andrad Ferreira | andrade-s | Desenvolvedor |
-| Vinicius Pimentel da Silva | Pxmentel | Desenvolvedor |
-| Paulo Sérgio Inácio | cibershaman | Desenvolvedor |
-| Ryan Costa Pereira | RyanCostaP | Desenvolvedor |
+| Diogo Andrade Ferreira | @andrade-s | Desenvolvedor |
+| Vinicius Pimentel da Silva | @Pxmentel | Desenvolvedor |
+| Paulo Sérgio Inácio | @cibershaman | Desenvolvedor |
+| Ryan Costa Pereira | @RyanCostaP | Desenvolvedor |
 
-### Repositorios
-- **Projeto Original**: Projeto pessoal
-- **Fork/Novo Repositorio**: `https://github.com/usuario/minha-cozinha`
+### Repositórios
+- **Projeto Original**: Projeto pessoal (sem repositório público)
+- **Fork/Novo Repositório**: `https://github.com/usuario/minha-cozinha`
 
 ---
 
 ## Contexto do Projeto Original
 
-### 1. Descricao do Projeto Original
+### 1. Descrição do Projeto Original
 
-#### Proposito
-O projeto Minha Cozinha e uma aplicação web para descobrir, compartilhar e organizar receitas culinárias. Permite aos usuarios explorar receitas, adicionar novas criações, pesquisar por ingredientes ou categorias e gerenciar seu perfil pessoal.
+#### Propósito
+O Minha Cozinha é uma aplicação web para descobrir, compartilhar e organizar receitas culinárias. O projeto original permitia explorar um catálogo de receitas, pesquisar por ingredientes ou categorias, criar novas receitas e gerenciar um perfil pessoal — tudo isso em uma SPA com persistência 100% em `localStorage`, sem backend.
 
 #### Origem do Projeto
-- [ ] Projeto pessoal anterior
-- [x] Projeto de outra disciplina
+- [x] Projeto pessoal anterior
+- [ ] Projeto de outra disciplina
 - [ ] Projeto de trabalho/empresa
 - [ ] Projeto open source
 - [ ] Outro
 
 **Detalhes:**
-- **Quando foi criado:** 2025
-- **Contexto:** Criado como aplicacao para amantes da culinaria organizarem suas receitas
-- **Desenvolvedor(es) original(is):** Diogo
+- **Quando foi criado:** 2024
+- **Contexto:** Criado como aplicação para amantes da culinária organizarem e compartilharem receitas localmente.
+- **Desenvolvedor(es) original(is):** Equipe atual do projeto
 - **Status atual:** Em manutenção e evolução
 
 ### 2. Funcionalidades Existentes
 
-#### Funcionalidades Implementadas
-- ✅ **Pagina Inicial**: Landing page com apresentacao do site e botoes de login/registro
-- ✅ **Sistema de Autenticacao**: Paginas de login e cadastro com gerenciamento de sessao
-- ✅ **Catalogo de Receitas**: Listagem de receitas com cards contendo imagem, titulo, ingredientes e categoria
-- ✅ **Busca em Tempo Real**: Pesquisa por titulo, ingredientes ou categoria
-- ✅ **Detalhes da Receita**: Visualizacao completa com imagem, ingredientes, modo de preparo e categoria
-- ✅ **Adicionar Receita**: Formulario para criar novas receitas com validacao
-- ✅ **Perfil do Usuario**: Visualizacao e edicao de dados pessoais
+#### Funcionalidades Implementadas (antes das melhorias)
+- ✅ **Página Inicial**: Apresentação do site e chamada para explorar receitas
+- ✅ **Autenticação (simulada)**: Páginas de login e cadastro com persistência local
+- ✅ **Catálogo de Receitas**: Listagem com imagem, título, ingredientes e categoria
+- ✅ **Busca em Tempo Real**: Pesquisa por título, ingredientes ou categoria
+- ✅ **Detalhes da Receita**: Visualização completa com ingredientes e modo de preparo
+- ✅ **Adicionar Receita**: Formulário para criação de novas receitas
+- ✅ **Perfil do Usuário**: Visualização e edição de dados pessoais
 
 #### Casos de Uso Existentes
 
 1. **Explorar Receitas**
-   - Ator: Usuario visitante
-   - Fluxo: Acessa a pagina de receitas, visualiza os cards, usa a busca para filtrar
-   - Resultado: Encontra receitas de interesse
+   - Ator: Visitante / Usuário logado
+   - Fluxo: Acessa a home → navega para `/receitas` → filtra via busca → abre detalhes
+   - Resultado: Visualiza ingredientes e modo de preparo da receita selecionada
 
-2. **Criar Nova Receita**
-   - Ator: Usuario autenticado
-   - Fluxo: Clica no botao flutuante "+", preenche o formulario, salva
-   - Resultado: Nova receita adicionada ao catalogo
+2. **Cadastrar Nova Receita**
+   - Ator: Usuário logado
+   - Fluxo: Clica no botão flutuante "+" → preenche formulário → salva
+   - Resultado: Receita persistida no `localStorage` e exibida no catálogo
 
 3. **Gerenciar Perfil**
-   - Ator: Usuario autenticado
-   - Fluxo: Acessa a pagina de perfil, edita informacoes pessoais
-   - Resultado: Dados do perfil atualizados
+   - Ator: Usuário logado
+   - Fluxo: Acessa `/perfil` → edita dados → salva
+   - Resultado: Dados atualizados no `UserContext` e no `localStorage`
 
-### 3. Stack Tecnologica Original
+### 3. Stack Tecnológica Original
 
-| Componente | Tecnologia | Versao |
+| Componente | Tecnologia | Versão |
 |------------|------------|--------|
-| **Frontend** | React | 18.3.1 |
-| **Linguagem** | TypeScript | 5.8.3 |
-| **Build Tool** | Vite | 5.4.19 |
-| **Estilizacao** | Tailwind CSS | 3.4.17 |
-| **Componentes UI** | shadcn/ui | - |
-| **Roteamento** | React Router DOM | 6.30.1 |
-| **Estado Assincrono** | TanStack Query | 5.83.0 |
-| **Icones** | Lucide React | 0.462.0 |
-| **Formularios** | React Hook Form | 7.61.1 |
-| **Validacao** | Zod | 3.25.76 |
+| Frontend | React | 18.3.1 |
+| Linguagem | TypeScript | 5.8.3 |
+| Build Tool | Vite | 5.4.19 |
+| Estilização | Tailwind CSS | 3.4.17 |
+| Componentes UI | shadcn/ui | — |
+| Roteamento | React Router DOM | 6.30.1 |
+| Estado Assíncrono | TanStack Query | 5.83.0 |
+| Ícones | Lucide React | 0.462.0 |
+| Formulários | React Hook Form | 7.61.1 |
+| Validação | Zod | 3.25.76 |
+| Persistência | localStorage (Web Storage API) | nativo |
 
 ### 4. Arquitetura Atual
 
@@ -92,64 +93,82 @@ O projeto Minha Cozinha e uma aplicação web para descobrir, compartilhar e org
 │     Frontend React + Vite       │
 │   (SPA - Single Page App)       │
 └───────────┬─────────────────────┘
-            │
             ↓
 ┌─────────────────────────────────┐
 │   Context API (Estado Global)   │
-│  RecipeContext + UserContext     │
+│  RecipeContext + UserContext    │
 └───────────┬─────────────────────┘
-            │
             ↓
 ┌─────────────────────────────────┐
-│   localStorage (Persistencia)   │
+│   localStorage (Persistência)   │
 └─────────────────────────────────┘
 ```
 
 **Descrição dos componentes:**
-- **Frontend**: Aplicacao React com TypeScript, usando componentes shadcn/ui e Tailwind CSS
-- **Estado Global**: Context API do React para gerenciar receitas e dados do usuario
-- **Persistencia**: localStorage do navegador para armazenar dados localmente
+- **Frontend**: SPA em React + Vite com Tailwind e shadcn/ui, organizada em páginas (`src/pages`) e componentes reutilizáveis (`src/components`).
+- **Estado Global**: `RecipeContext` (receitas e CRUD) e `UserContext` (perfil do usuário).
+- **Persistência**: `localStorage` — todas as receitas, comentários e dados do perfil ficam no navegador, sem backend.
 
 ---
 
-## Analise de Limitações
+## Análise de Limitações
 
 ### 1. Limitações Identificadas
 
-#### Limitação 1: Persistencia Apenas Local
+#### Limitação 1: Ausência de Interação Social
 - **Categoria**: [x] Funcional
-- **Descrição**: Os dados são armazenados apenas no localStorage do navegador, sem sincronização entre dispositivos
-- **Impacto**: Usuários perdem dados ao trocar de navegador ou limpar cache
+- **Descrição**: As receitas eram conteúdo estático; não havia espaço para o usuário comentar, opinar ou trocar experiências.
+- **Impacto**: Plataforma sem engajamento e sem motivos para retorno do usuário ao mesmo conteúdo.
+- **Evidências**: Página de detalhes contendo apenas ingredientes e modo de preparo.
 - **Frequência**: [x] Alto
 
-#### Limitação 2: Sem Interação Social
+#### Limitação 2: Receitas com Informações Incompletas
 - **Categoria**: [x] Funcional
-- **Descrição**: Não existe sistema de comentarios, avaliações ou compartilhamento entre usuários
-- **Impacto**: A plataforma não promove interações entre os usuários
+- **Descrição**: Não havia campos de porções nem tempo de preparo; também não existia estimativa de tempo de leitura.
+- **Impacto**: Dificultava o planejamento culinário e a tomada de decisão rápida.
+- **Evidências**: Formulário de criação só pedia título, ingredientes, categoria e modo de preparo.
 - **Frequência**: [x] Médio
 
-### 2. Análise SWOT do Projeto Original
+#### Limitação 3: Sem Distinção entre Receitas do Sistema e do Usuário
+- **Categoria**: [x] Funcional
+- **Descrição**: Receitas pré-cadastradas e criadas pelo usuário eram tratadas de forma idêntica; não havia edição nem exclusão.
+- **Impacto**: Risco de alteração indevida de conteúdo do sistema e falta de controle do usuário sobre o próprio conteúdo.
+- **Frequência**: [x] Médio
 
-#### Forças (Strengths)
-- Interface limpa e minimalista
-- Design responsívo para todos os dispositivos
+#### Limitação 4: Home pouco informativa
+- **Categoria**: [x] Usabilidade
+- **Descrição**: A página inicial não comunicava o volume de conteúdo e tinha hierarquia visual confusa.
+- **Impacto**: Primeira impressão fraca para novos usuários.
+- **Frequência**: [x] Baixo
+
+### 2. Feedback de Usuários
+
+| Usuário/Fonte | Feedback | Prioridade |
+|---------------|----------|------------|
+| Testes internos | "Poderia dar pra comentar nas receitas" | Alta |
+| Testes internos | "Não sei quanto tempo demora pra fazer" | Média |
+
+### 3. Análise SWOT do Projeto Original
+
+#### Forças
+- Interface limpa e responsiva
 - Busca em tempo real eficiente
 - Formulários com validação robusta (Zod + React Hook Form)
 - Código bem organizado com TypeScript
 
-#### Fraquezas (Weaknesses)
-- Persistência apenas local
-- Sem interações sociais
-- 
-#### Oportunidades (Opportunities)
-- Integracao com banco de dados real
-- Funcionalidades sociais (comentarios, favoritos)
-- PWA para uso offline
-  
-#### Ameacas (Threats)
-- Perda de dados por limpeza de cache do navegador
-- Sem proteção contra manipulação de dados no localStorage
-- Dependência de bibliotecas de terceiros
+#### Fraquezas
+- Ausência de qualquer interação social
+- Receitas com poucos metadados
+- Autenticação simulada e persistência apenas local
+
+#### Oportunidades
+- Camada social por meio de comentários
+- Enriquecimento dos metadados das receitas
+- Personalização visual do perfil
+- Refino da identidade visual da home
+
+#### Ameaças
+- Perda de dados por limpeza de cache
 
 ---
 
@@ -157,171 +176,172 @@ O projeto Minha Cozinha e uma aplicação web para descobrir, compartilhar e org
 
 ### 1. Objetivos das Melhorias
 
-1. **Objetivo 1**: Dados ficarem salvos em um banco de dados
-   - Justificativa: Permitir que os dados sejam salvos como perfil e as receitas, fora do cachê
-   - Metricas de sucesso: as informações sejam feitas em um computador ou celular e aparecerem em outro 
+1. **Implementar interação social entre usuários**
+   - Justificativa: principal objetivo nosso do projeto original; a plataforma sem isso parece bastante somente um catálogo estático.
+   - Métricas de sucesso: comentários sendo criados, curtidos e excluídos com persistência local.
 
-2. **Objetivo 2**: Aba de comentários e uma forma de favoritar as receitas
-   - Justificativa: Permitir usuários comentarem sobre a receita, comentando sobre como ela poderia ser melhor, e uma forma de salvar as receitas que você já fez, se o números de receitas subir demais
-   - Metricas de sucesso: Usuario consegue comentar e favoritar sem erros
-     
+2. **Enriquecer a experiência ao redor das receitas**
+   - Justificativa: usuários precisam de mais contexto (tempo, porções, leitura) e controle (editar/excluir).
+   - Métricas de sucesso: campos exibidos em todas as receitas; ações de edição/exclusão funcionando sem regressões.
+
 ### 2. Melhorias Planejadas
 
-#### Melhoria 1: Dados ficarem salvos em um banco de dados
-
-**Categoria**: [x] Otimização
-
-**Problema que resolve:**
-> Usuarios perder tudo que fez ao trocar de dispositivo ou apagar o cache
-
-**Solucao proposta:**
-> Conectar o projeto com um banco de dados
-
-**Justificativa tecnica:**
-> Única maneira do usuário poder continuar com tudo que fez
-
-**Impacto esperado:**
-> O usuário conseguir manter as receitas que fez, juntamente com seu perfil
-
-**Complexidade**: [x] Média
-
-**Tempo estimado**: 3-4 semanas
-
-**Responsável**: [Grupo todo em conjunto]
-
----
-
-#### Melhoria 2: Aba de comentários e uma forma de favoritar as receitas
+#### Melhoria 1: Sistema de Comentários nas Receitas
 
 **Categoria**: [x] Nova Funcionalidade
 
-**Problema que resolve:**
-> Usuários poderem comentar sobre uma receita e poder salvar ela
+**Problema que resolve:** Ausência de interação social — Limitação 1.
 
-**Solucao proposta:**
-> criar uma aba de comentário e alguma forma de favoritar, juntamente com uma aba de favoritos
+**Solução proposta:** Componente `RecipeComments` integrado à página de detalhes, permitindo criar, curtir e excluir comentários, com `AlertDialog` para confirmação e persistência no `localStorage` sob a chave `recipe-comments`, segmentada por `recipeId`.
 
-**Justificativa tecnica:**
-> Única maneira do usuário saber o que outros usuários acharam da receita, e salvar ela
+**Justificativa técnica:** Componente isolado, sem dependências externas, mantendo arquitetura 100% local. Reaproveita o `UserContext` para identidade (nome e avatar).
 
-**Impacto esperado:**
-> Um aumento na comunidade e quantas poder repetir as receitas
+**Impacto esperado:** Transformar o catálogo em plataforma social, com engajamento e retorno do usuário.
 
-**Complexidade**: [x] Baixa
-
-**Tempo estimado**: 1-2 semanas
-
-**Responsável**: [Grupo todo em conjunto]
-
-
-### 3. Melhorias Consideradas mas NAO Incluidas
-
-| Melhoria | Por que nao sera implementada agora |
-|----------|-------------------------------------|
-| Autenticacao real | Não sabemos se conseguiremos o banco de dados somente sobre as receitas e perfil, poder ter alguma verificação demoraria muito |
-| PWA / Modo offline | Complexidade adicional fora do escopo atual |
+**Complexidade**: [x] Média
+**Tempo estimado**: 1 a 2 semana
+**Responsável**: Equipe em conjunto
 
 ---
 
-## Especificações Tecnicas das Melhorias
+#### Melhoria 2: Metadados de Receita (tempo de leitura, porções e tempo de preparo)
 
-### 1. Mudancas na Arquitetura
+**Categoria**: [x] Nova Funcionalidade
 
-A arquitetura geral permanece a mesma, com adição de novas funções no contexto existente:
+**Problema que resolve:** Limitação 2 — receitas sem informações suficientes.
+
+**Solução proposta:**
+- Campos `servings` e `prepTime` no formulário de criação/edição, exibidos em cards e detalhes.
+- Cálculo automático do tempo de leitura (≈200 palavras/min) com base no modo de preparo, exibido nos detalhes.
+
+**Justificativa técnica:** Campos opcionais na interface `Recipe`, com migração automática para receitas antigas. Cálculo de leitura como função pura.
+
+**Impacto esperado:** Leitura mais informada e melhor planejamento culinário.
+
+**Complexidade**: [x] Baixa
+**Tempo estimado**: 3 dias
+
+---
+
+### 3. Melhorias Consideradas mas NÃO Incluídas
+
+| Melhoria | Por que não será implementada agora |
+|----------|-------------------------------------|
+| Backend real com autenticação completa | Fora do escopo; o projeto mantém arquitetura 100% local |
+| Sincronização entre dispositivos | Complecidade alta e pouco tempo para estudar mais a fundo |
+
+---
+
+## Especificações Técnicas das Melhorias
+
+### 1. Mudanças na Arquitetura
+
+A arquitetura geral permanece a mesma (SPA + Context API + localStorage). Adições:
 
 ```
-┌─────────────────────────────────────────┐
-│         Frontend React + Vite           │
-└───────────┬─────────────────────────────┘
-            │
-            ↓
-┌─────────────────────────────────────────┐
-│      Context API (Estado Global)        │
-│  RecipeContext (+ comentários, favoritos│
-│  UserContext (+ favoritos salvos)       │
-└───────────┬─────────────────────────────┘
-            │
-            ↓
-┌─────────────────────────────────────────┐
-│    Banco de Dados                       │
-└─────────────────────────────────────────┘
+RecipeContext: addRecipe, updateRecipe, deleteRecipe, getRecipeById
+UserContext:   updateUser (inclui avatar em base64)
+Componentes:   RecipeComments, EditarReceita
+localStorage: chave "recipe-comments" segmentada por recipeId
 ```
 
-**Mudancas principais:**
-- [x] Adicao de novos componentes
-- [ ] Refatoracao de componentes existentes
-- [x] Mudanca de tecnologias
+**Mudanças principais:**
+- [x] Adição de novos componentes (`RecipeComments`, página `EditarReceita`)
+- [x] Refatoração de componentes existentes (`RecipeCard`, `NovaReceita`, `PerfilUsuario`, `Index`, `RecipeDetail`)
+- [ ] Mudança de tecnologias
 - [ ] Nova arquitetura
 
 ### 2. Novas Tecnologias/Bibliotecas
 
-Liste novas dependências que serão adicionadas:
+Nenhuma. Todas as melhorias utilizam tecnologias já presentes (React, FileReader API nativa, `localStorage`).
 
-| Tecnologia/Biblioteca | Versão | Propósito | Justificativa |
-|-----------------------|--------|-----------|---------------| 
-| Banco de dados à decidir | --- | Melhoria no salvamento de dados | Não poder ter receitas ou perfil salvo entre dispositivos |
+### 3. Migrações Necessárias
 
-### 3. Migracoes Necessarias
-
-à decidir 
+- [x] Migração automática de receitas antigas no `RecipeContext`, aplicando valores-padrão para `isUserRecipe`, `servings` e `prepTime`.
 
 ---
 
-## Plano de Implementacao
+## Plano de Implementação
 
-### Cronograma
+### Cronograma Detalhado
 
-#### Fase 1: Analise e Preparacao
-- [x] Analise do codigo existente
-- [x] Documentacao da arquitetura atual
-- [x] Identificacao de pontos criticos
-- [x] Planejamento das melhorias
+#### Fase 1: Análise e Preparação
+- [x] Análise do código existente
+- [x] Documentação da arquitetura atual
+- [x] Planejamento do sistema de comentários e melhorias complementares
+- [x] Definição de testes manuais para evitar regressões
 
-#### Fase 2: Implementacao das Melhorias - Parte 1
+#### Fase 2: Implementação — Parte 1
+- [x] Sistema de comentários (objetivo principal)
+- [x] Tempo estimado de leitura
+- [x] Campos de porções e tempo de preparo
 
-#### Fase 3: Implementação - Parte 2
+#### Fase 3: Implementação — Parte 2
+- [x] Contador de receitas na home
 
 #### Fase 4: Finalização
-### Estrategia de Testes
+- [x] Documentação completa
+- [x] Testes manuais
 
-**Como garantir que não quebramos o que já funcionava:**
-- [ ] Testes manuais de todas funcionalidades existentes
-- [ ] Comparacao lado a lado (versao antiga vs nova)
+### Estratégia de Testes
+- [x] Testes manuais de todas as funcionalidades existentes
+- [x] Comparação lado a lado (versão antiga vs nova)
 - [ ] Testes automatizados
-- [ ] Testes com usuarios reais
+- [ ] Testes com usuários reais
 
 ---
 
-#### 1. Comparativo de Funcionalidades
+## Comparação Antes/Depois
 
-| Funcionalidade | Versão Original | Versão melhorada | Status |
-|----------------|-----------------|------------------|--------| 
+### 1. Comparativo de Funcionalidades
 
-#### 2. Metricas de Melhoria
+| Funcionalidade | Versão Original | Versão Melhorada | Status |
+|----------------|-----------------|------------------|--------|
+| Comentários | Não existia | Comentários por receita, com curtidas e exclusão | Novo |
+| Tempo de leitura | Não existia | Estimativa automática nos detalhes | Novo |
+| Cards de receita | Imagem, título, ingredientes | + porções e tempo de preparo | Melhorado |
+| Contador de receitas | Não existia | Exibido na home | Novo |
+| Receitas pré-prontas | Sem proteção | Protegidas (IDs 1–3) | Corrigido |
 
-#### Perfomance
-
-#### Usabilidade
+### 2. Métricas de Melhoria
 
 #### Código
+| Métrica | Antes | Depois |
+|---------|-------|--------|
+| Componentes de interação social | 0 | 1 (`RecipeComments`) |
+| Funções no `RecipeContext` | 2 | 4 |
+| Campos na interface `Recipe` | 7 | 9 |
+| Páginas | 7 | 8 (`EditarReceita`) |
 
-#### 3. Evidências Visuais
+### 3. Evidências Visuais
 
-### Screenshots - Antes
+#### Screenshots - Antes
+```
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/54b82bd3-8e89-4fec-9150-6a0d7d6d0297" />
 
-### Problemas visíveis:
+<img width="1918" height="1078" alt="image" src="https://github.com/user-attachments/assets/b6c8b9eb-c60d-4e14-ae6f-2ae3cabe6e4e" />
 
-### Screenshots - Depois
+```
 
-### Melhorias visíveis:
+**Problemas visíveis:**
+- Faltando o tempo de leitura da receita
+- Aaixo da receita sem uma parte de comentários
 
-#### Comparacao Antes/Depois
+#### Screenshots - Depois
+```
+<img width="1918" height="935" alt="image" src="https://github.com/user-attachments/assets/5b1cf05b-9775-4029-85c0-469fce76734f" />
+<img width="1918" height="927" alt="image" src="https://github.com/user-attachments/assets/5eb4d797-41c4-4663-b9e0-4d74ee6bb3e1" />
 
-#### 4. Vídeos Demonstrativos
+```
 
-Demo Versão Original: [Link]
-Demo Versão Melhorada: [Link]
-Comparação Lado a Lado: [Link]
+**Melhorias visíveis:**
+- Melhor visão sobre o tempo de leitura
+- Aba de comentários funcionando normalmente
+
+### 4. Vídeos Demonstrativos
+
+- Demo Versão Original: (https://drive.google.com/file/d/11bHZsCKWE8RyK8yPQQS1eatzn2m5Hj63/view?pli=1)
+- Demo Versão Melhorada: (https://drive.google.com/file/d/1SUwa2pxarg8B0l8toRi_axsU9yrq4bNe/view?usp=sharing)
 
 ---
 
@@ -329,118 +349,150 @@ Comparação Lado a Lado: [Link]
 
 ### 1. Principais Desafios Encontrados
 
-#### Desafio 1: Migracao de dados do localStorage
-- **Natureza do problema**:
-- **Como foi resolvido**:
-- **Licao aprendida**: 
+#### Desafio 1: Persistência de comentários sem backend
+- **Natureza**: Arquitetural
+- **Como foi resolvido**: Armazenamento em uma única chave `recipe-comments` no `localStorage`, segmentada por `recipeId`.
+- **Lição aprendida**: Sem backend, a modelagem de chaves precisa ser pensada para escalar com o conteúdo.
 
-#### Desafio 2: Comentário e favorito
-- **Natureza do problema**: 
-- **Como foi resolvido**: 
-- **Licao aprendida**:
-- 
-### 2. Decisoes Tecnicas Importantes
+#### Desafio 2: Vincular identidade do usuário aos comentários
+- **Natureza**: Integração
+- **Como foi resolvido**: `RecipeComments` consome `UserContext` para nome e avatar.
+- **Lição aprendida**: Centralizar identidade em um único contexto facilita novas funcionalidades sociais.
 
-| Decisao | Alternativas Consideradas | Escolha Final | Justificativa |
-|---------|---------------------------|---------------|---------------|
+#### Desafio 3: Compatibilidade de dados antigos
+- **Natureza**: Técnico
+- **Como foi resolvido**: Migração automática no `RecipeContext` para receitas sem `isUserRecipe`, `servings` ou `prepTime`.
+- **Lição aprendida**: Toda mudança de schema exige um plano de migração, mesmo no `localStorage`.
 
-### 3. O Que Fariamos Diferente
+### 2. Decisões Técnicas Importantes
 
-- 
-- 
-- 
+| Decisão | Alternativas | Escolha Final | Justificativa |
+|---------|--------------|---------------|---------------|
+| Persistência dos comentários | Backend, serviço externo | `localStorage` por receita | Alinhado à arquitetura local |
+| Porções/tempo | Obrigatórios | Opcionais | Não quebrar receitas existentes |
+| Confirmação de exclusão | Toast | `AlertDialog` | Prevenir exclusões acidentais |
+
+### 3. O Que Faríamos Diferente
+- Planejar o schema de receitas com todos os campos desde o início.
+- Adicionar testes automatizados antes de iniciar as melhorias.
 
 ---
 
-## Consideracoes de Seguranca
+## Considerações de Segurança
 
 ### Vulnerabilidades do Projeto Original
 
 | Vulnerabilidade | Severidade | Status |
 |-----------------|------------|--------|
+| Autenticação simulada | Alta | Limitação aceita |
+| Dados sensíveis no `localStorage` | Média | Limitação da arquitetura |
 
-### Melhorias de Seguranca Implementadas
-
--
--
--
+### Melhorias de Segurança Implementadas
+- ✅ Diálogo de confirmação antes de excluir receitas e comentários
+- ✅ Proteção de receitas do sistema contra edição/exclusão
+- ✅ Validação de tamanho dos campos de comentário (nome até 50, texto até 500)
 
 ---
 
 ## Impacto das Melhorias
 
-### 1. Beneficios para Usuarios Existentes
-- 
-- 
-- 
+### 1. Benefícios para Usuários Existentes
+- Espaço para interagir socialmente em cada receita.
+- Leitura mais informada (tempo de leitura, porções, tempo de preparo).
 
-### 2. Novos Usuarios Alcancados
-- 
-- 
+### 2. Novos Usuários Alcançados
+- Usuários que buscam trocar experiências e dicas em torno das receitas.
 
 ### 3. Impacto Social Ampliado
--
+A introduçao dos comentários transforma a plataforma em um espaço de troca culinária, incentivando o compartilhamento de variações, dicas e tradições em torno de cada receita.
 
 ---
 
-## Referencias
+## Referências
 
 ### Projeto Original
-1. 
-2. 
-3. 
-
-### Pesquisa para melhorias
-1. 
-2. 
-3. 
+1. Documentação interna do Minha Cozinha (`DOCUMENTATION.md`, `README.md`)
+2. Histórico de evolução do projeto local
 
 ### Referências Técnicas
-1. 
-2. 
-3. 
+1. Documentação React: https://react.dev
+2. Documentação TypeScript: https://www.typescriptlang.org/docs
+3. Documentação Tailwind CSS: https://tailwindcss.com/docs
+4. Documentação shadcn/ui: https://ui.shadcn.com
+5. Documentação React Router: https://reactrouter.com
+6. Documentação Vite: https://vitejs.dev
+7. FileReader API (MDN): https://developer.mozilla.org/docs/Web/API/FileReader
+8. Web Storage API (MDN): https://developer.mozilla.org/docs/Web/API/Web_Storage_API
 
-### Literaturas Acadêmicas
-1. FOWLER, Martin. Refactoring: Improving the Design of Existing Code. 2ª ed. Addison-Wesley, 2018.
-2. MARTIN, Robert C. Código Limpo. Alta Books, 2009.
+### Literatura Acadêmica
+1. FOWLER, Martin. **Refactoring: Improving the Design of Existing Code**. 2ª ed. Addison-Wesley, 2018.
+2. MARTIN, Robert C. **Código Limpo**. Alta Books, 2009.
 
 ---
 
 ## Validação das Melhorias
 
-### Checklist de Qualidade
+### Funcionalidades Originais
+- [x] Todas as funcionalidades originais continuam funcionando
+- [x] Nenhuma regressão introduzida
+- [x] Dados existentes compatíveis (migração automática)
 
-#### Funcionalidades Originais
+### Novas Funcionalidades/Melhorias
+- [x] Sistema de comentários implementado (objetivo central)
+- [x] Todas as melhorias complementares implementadas
+- [x] Testadas manualmente
+- [x] Código segue boas práticas
 
-#### Novas Funcionalidades/Melhorias
+### Documentação
+- [x] Documentação antiga do projeto passado (https://github.com/andrade-s/Melhorando-projeto-ja-feito/blob/main/DOCUMENTATION.md)
+- [x] Documentação feita no início e fim das mudanças, atualizada para ficar totalmente de acordo.
 
-#### Documentação
-
-#### Qualidade Técnica
+### Qualidade Técnica
+- [x] TypeScript em todo o código
+- [x] Performance mantida
+- [x] Validação com Zod
+- [ ] Testes automatizados
 
 ---
 
 ## Changelog
 
-### Versao 2.0 - abril de 2026
+### Versão 2.0 — maio de 2026
 
 #### Adicionado
--
-
-#### Corrigindo
--
+- Sistema de comentários por receita (objetivo principal), com curtidas, exclusão e persistência local
+- Tempo estimado de leitura na página de detalhes
+- Campos de porções e tempo de preparo nas receitas
+- Exclusão de receitas com `AlertDialog` de confirmação
+- Contador de receitas na home
+- Funções `updateRecipe` e `deleteRecipe` no `RecipeContext`
 
 #### Melhorado
--
+- Página inicial com layout minimalista e maior espaçamento
+- Cards de receitas exibem porções e tempo de preparo
+- Documentação completa do projeto
+
+#### Corrigido
+- Receitas pré-prontas (IDs 1–3) não mostram opção de edição/exclusão
+- Migração automática de receitas antigas sem `isUserRecipe`, `servings` ou `prepTime`
 
 #### Segurança
--
+- Diálogo de confirmação antes de excluir receitas e comentários
+- Proteção de receitas do sistema contra modificação
+- Validação de tamanho dos campos de comentário
 
 #### Removido
--
+- Sessões complexas e desnecessárias do perfil
+- Abas de filtro redundantes
 
-#### Deprecated
--
+---
+
+## Colaboração com Projeto Original
+
+- [ ] Projeto original é open source
+- [ ] Pull Request planejado
+- [x] Equipe atual é também a autora original
+- [x] Licença respeitada
 
 ---
 
@@ -448,15 +500,16 @@ Comparação Lado a Lado: [Link]
 
 ### Resumo das Conquistas
 
-**Estatisticas Gerais:**
-- ✅ [X] melhorias implementadas
-- ✅ [Y] bugs corrigidos
-- ✅ [Z]% melhoria de perfomance
-- ✅ [W] novas funcionalidades
+**Estatísticas Gerais:**
+- ✅ 1 objetivo central concluído (sistema de comentários)
+- ✅ 3 melhorias complementares implementadas (tempo de leitura, quantas receitas tem na home, sistema de curtir comentários)
+- ✅ 2 correções relevantes (proteção de receitas do sistema e migração de dados)
+- ✅ Nenhuma nova dependência adicionada
 
 **Impacto:**
--
+A iniciativa cumpriu seu objetivo principal — dar aos usuários um espaço de interação social em cada receita — e ainda entregou refinamentos (tempo de leitura, metadados, controle sobre o próprio conteúdo, perfil personalizável e redesign da home) que melhoraram a experiência geral do Minha Cozinha, mantendo a arquitetura 100% local.
 
-### Proximos Passos
-
-- 
+### Próximos Passos (Pós-Disciplina)
+- [ ] Testes automatizados
+- [ ] Backend opcional para sincronização entre dispositivos
+- [ ] Notificações de novos comentários

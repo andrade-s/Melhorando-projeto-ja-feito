@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { ChefHat, Users, Search } from "lucide-react";
+import { useRecipes } from "@/context/RecipeContext";
 
 const Index = () => {
   const navigate = useNavigate();
+  const { recipes } = useRecipes();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-recipe-neutral to-white flex items-center">
@@ -19,6 +21,9 @@ const Index = () => {
             <h1 className="text-6xl md:text-7xl font-bold text-recipe-text">
               Minha<span className="bg-gradient-warm bg-clip-text text-transparent"> Cozinha</span>
             </h1>
+            <p className="text-lg text-muted-foreground">
+              {recipes.length} {recipes.length === 1 ? "receita" : "receitas"} para explorar
+            </p>
           </div>
 
           {/* Features */}
@@ -40,15 +45,15 @@ const Index = () => {
           {/* Call to Action */}
           <div className="space-y-6 mt-20">
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button 
+              <Button
                 size="lg"
                 className="bg-gradient-warm hover:opacity-90 transition-opacity text-xl px-12 py-6 h-auto"
                 onClick={() => navigate("/cadastro")}
               >
                 Começar Agora
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
                 className="text-xl px-12 py-6 h-auto"
                 onClick={() => navigate("/login")}
